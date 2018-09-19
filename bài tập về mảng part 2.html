@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Array-excercise-2</title>
+</head>
+<body>
+<button type = "button" onclick = "(creatingArray())">Bài 1: Tạo 1 mảng 2 chiều 10 phần tử</button>
+<button type = "button" onclick = "(reverseArray())">Bài 2: Tạo 1, đưa ra hiển thị mảng đảo ngược</button>
+<button type = "button" onclick = "(countword(prompt('Nhập vào 1 chuỗi để đếm từ: ')))">Bài 3: Đếm số từ trong chuỗi</button>
+<button type = "button" onclick = "(sameas(prompt('Nhập vào chuỗi 1 để so sánh: '),prompt('Nhập vào chuỗi 2 để so sánh: ')))">Bài 4: Kiểm tra chuỗi trung nhau</button>
+<button type = "button" onclick = "(replaceword(prompt('Nhập vào 1 chuỗi để thay từ: ')))">Bài 6: Thay từ trong chuỗi</button>
+<script>
+    function creatingArray() {
+        function motchieu() {
+            let a = [];
+            for (let i = 0; i < 5; i++) {
+                a.push(Math.floor((Math.random() * 20)+ 0));
+            }return a;
+        }
+        let b = [];
+        for (let i = 0; i < 5; i++){
+            b.push(motchieu());
+        }
+        for (var i in b)
+        {
+            document.write("row " + i + "<br/>");
+            for (var j in b[i])
+            {
+                document.write(" " + b[i][j]+ "<br/>");
+            }
+        }
+    }
+    // function reverseArray1(arr){
+    //     let b = [];
+    //     for (let j = arr.length - 1; j >= 0; j--) {
+    //         b.push(arr[j]);
+    //     }return (b)
+    // }
+    //
+    // function reverseArray(){
+    //     function motchieu() {
+    //         let a = [];
+    //         for (let i = 0; i < 5; i++) {
+    //             a.push(Math.floor((Math.random() * 20)+ 0));
+    //         }return a;
+    //     }
+    //     let b = [];
+    //     for (let i = 0; i < 5; i++){
+    //         b.push(motchieu());
+    //     }
+    // for (var j in b){
+    //      a.push(reverseArray1(b[i]));
+    //     }
+    //     document.write(a);
+    // }
+    function reverseArray() {
+        let a = [];
+        let b = [];
+        for (let i = 0; i < 10; i++) {
+            a.push(Math.floor((Math.random() * 5) + 5));//[5-10]
+        }
+        for (let j = a.length - 1; j >= 0; j--) {
+            b.push(a[j]);
+        }
+        document.write("Các phần tử của mảng là: " + a + "<br/>");
+        document.write("Các phần tử của mảng đảo ngược là: " + b);
+    }
+    function countword(str){
+        str = str.trim();
+        let a = str.split("");
+        let c = 0;
+        for ( var i in a){
+            if ( a[i] === " "){
+                c++;
+            }
+        }document.write("Số từ trong chuỗi là: " + (c+1));
+    }
+    function sameas(str1, str2){
+        str1 = str1.trim();
+        let a1 = str1.split("");
+        str2 = str2.trim();
+        let a2 = str2.split("");
+        let c = 0;
+        if(a1.length = a2.length){
+            for (var i in a1){
+                if(a1[i] === a2[i]){
+                    c++;
+                }
+            }
+        }else { c += -1;}
+        if ( c > 0){
+            document.write("Hai chuỗi trung nhau");
+        }else {
+            document.write("Hai chuỗi KHÔNG trung nhau");
+        }
+    }
+    function replaceword(str){
+        str = str.trim();
+        let a = str.split("");
+        let c = 0;
+        let s = "";
+        for ( var i in a){
+            if ( a[i] === "-"){
+                a[i] = "_";
+            }
+        }for (var i in a){
+            s = s + a[i];
+        }
+        document.write("Chuỗi đã thay từ là:" +  "<br/>" + s);
+    }
+</script>
+</body>
+</html>
